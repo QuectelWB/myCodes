@@ -1,167 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>docsify</title>
-    <link rel="icon" href="_media/favicon.ico" />
-    <meta
-      name="google-site-verification"
-      content="6t0LoIeFksrjF4c9sqUEsVXiQNxLp2hgoqo0KryT-sE"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta
-      name="keywords"
-      content="doc,docs,documentation,gitbook,creator,generator,github,jekyll,github-pages"
-    />
-    <meta name="description" content="A magical documentation generator." />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
-    />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
-      title="vue"
-    />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css"
-      title="dark"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/buble.css"
-      title="buble"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/pure.css"
-      title="pure"
-      disabled
-    />
-    <style>
-      nav.app-nav li ul {
-        min-width: 100px;
-      }
+<head>
+  <meta charset="UTF-8">
+  <!-- 网站标题 -->
+  <title>myCodes</title>
+  <!-- 网站icon -->
+  <link rel="icon" href="_media/BW.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- Theme 主题设置 [vue.css] [buble.css] [dark.css] [pure.css] -->
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <!-- Plugin gitalk -->
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+</head>
+<body>
+  <!-- loading显示的文字 -->
+  <div id="app">...wait for minutes...</div>
+  <script>
+    window.$docsify = {
+      // ************************* Configuration *************************
+      // https://docsify.js.org/#/zh-cn/configuration
+	  loadSidebar: true,
+	  coverpage: true,
+	  maxLevel: 4,
+	  subMaxLevel: 2,
+	  /*****
+      loadNavbar: true,
+      mergeNavbar: true,******/
+	  
+      notFoundPage: true,
+      name: 'myCodes',
+      repo: 'QuectelWB/myCodes',
+    //  repo: 'QuectelWB/Quectel_STD_Modules_UserGuide',
+      auto2top: true,
 
-      #carbonads {
-        box-shadow: none !important;
-        width: auto !important;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="app">Loading ...</div>
-    <script>
-      window.$docsify = {
-        alias: {
-          '.*?/awesome':
-            'https://raw.githubusercontent.com/docsifyjs/awesome-docsify/master/README.md',
-          '.*?/changelog':
-            'https://raw.githubusercontent.com/docsifyjs/docsify/master/CHANGELOG.md',
-          '/.*/_navbar.md': '/_navbar.md',
-          '/zh-cn/(.*)':
-            'https://raw.githubusercontent.com/docsifyjs/docs-zh/master/$1',
-          '/de-de/(.*)':
-            'https://raw.githubusercontent.com/docsifyjs/docs-de/master/$1',
-          '/ru-ru/(.*)':
-            'https://raw.githubusercontent.com/docsifyjs/docs-ru/master/$1',
-          '/es/(.*)':
-            'https://raw.githubusercontent.com/docsifyjs/docs-es/master/$1',
-          '/write-a-plugin':
-            'https://raw.githubusercontent.com/docsifyjs/docsify/master/docs/write-a-plugin.md',
-        },
-        auto2top: true,
-        coverpage: true,
-        executeScript: true,
-        loadSidebar: true,
-        loadNavbar: true,
-        mergeNavbar: true,
-        maxLevel: 4,
-        subMaxLevel: 2,
-        ga: 'UA-106147152-1',
-        matomo: {
-          host: '//matomo.thunderwave.de',
-          id: 6,
-        },
-        name: 'docsify',
-        search: {
-          noData: {
-            '/de-de/': 'Keine Ergebnisse!',
-            '/zh-cn/': '没有结果!',
-            '/': 'No results!',
-          },
-          paths: 'auto',
-          placeholder: {
-            '/de-de/': 'Suche',
-            '/zh-cn/': '搜索',
-            '/': 'Search',
-          },
-        },
-        plugins: [
-          function(hook, vm) {
-            hook.beforeEach(function(html) {
-              if (/githubusercontent\.com/.test(vm.route.file)) {
-                url = vm.route.file
-                  .replace('raw.githubusercontent.com', 'github.com')
-                  .replace(/\/master/, '/blob/master');
-              } else if (/jsdelivr\.net/.test(vm.route.file)) {
-                url = vm.route.file
-                  .replace('cdn.jsdelivr.net/gh', 'github.com')
-                  .replace('@master', '/blob/master');
-              } else {
-                url =
-                  'https://github.com/docsifyjs/docsify/blob/master/docs/' +
-                  vm.route.file;
-              }
-              var editHtml = '[:memo: Edit Document](' + url + ')\n';
-              return (
-                editHtml +
-                html +
-                '\n\n----\n\n' +
-                '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>'
-              );
-            }),
-              hook.afterEach(function(html) {
-                if (vm.route.path === '/') {
-                  return html;
-                }
-                return `${html}<br/> <i>Vercel</i> has given us a Pro account <br/> <a href="https://vercel.com/?utm_source=docsifyjsdocs" target="_blank"><img src="_media/vercel_logo.svg" alt="Vercel" width="100" height="64"></a>`;
-              });
-          },
-        ],
-      };
-    </script>
-    <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-nginx.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify-plugin-carbon@1/index.min.js"></script>
-    <script>
-      (function() {
-        function loadJS(src, attrs) {
-          document.write(
-            '<script src="' + src + '" ' + (attrs || '') + '><\/script>'
-          );
-        }
-
-        // Public site only
-        if (/docsify/.test(location.host)) {
-          ((window.gitter = {}).chat = {}).options = {
-            room: 'docsifyjs/Lobby',
-          };
-
-          loadJS('//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/ga.min.js');
-          loadJS('//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/matomo.min.js');
-          loadJS('//sidecar.gitter.im/dist/sidecar.v1.js', 'async defer');
-        }
-      })();
-    </script>
-    <script src="//cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
-  </body>
+      // ************************* Plugins *************************
+      // https://docsify.js.org/#/zh-cn/plugins
+      // 全文搜索 - Search
+      search: 'auto'
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <!-- ************************* Plugins ************************* -->
+  <!-- Plugins：全文搜索 -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <!-- Plugins：图片缩放 - Zoom image -->
+  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+  <!-- Plugins：gitalk -->
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script>
+      const gitalk = new Gitalk({
+          clientID: 'fefa769524832108f363',
+          clientSecret: '16f0b7cd40ca4ec12100c012387acef241affffa',
+          repo: 'pinglunqu',
+          owner: 'QuectelWB',
+          admin: ['QuectelWB'],
+          // id: '{{ page.url | truncate: 50, '' }}',
+		  id: md5(location.pathname),
+          distractionFreeMode: false // Facebook-like distraction free mode
+      })
+      gitalk.render('gitalk-container')
+  </script>
+</body>
 </html>

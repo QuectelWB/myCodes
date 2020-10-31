@@ -1,12 +1,7 @@
-![logo](_media/icon.svg)
+![logo](_media/BW.png)
 
-# docsify <small>4.11.6</small>
+# myCodes <small>1.0</small>
 
-> A magical documentation site generator.
 
-- Simple and lightweight
-- No statically built html files
-- Multiple themes
-
-[GitHub](https://github.com/docsifyjs/docsify/)
-[Getting Started](#docsify)
+[GitHub](https://github.com/QuectelWB/myCodes/)
+[Getting Started](#myCodes)
