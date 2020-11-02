@@ -1,0 +1,1 @@
+cmd_/home/rlk/GithubPages/myCodes/KernelExperiment/memory/built-in.o :=  rm -f /home/rlk/GithubPages/myCodes/KernelExperiment/memory/built-in.o; ar rcsD /home/rlk/GithubPages/myCodes/KernelExperiment/memory/built-in.o

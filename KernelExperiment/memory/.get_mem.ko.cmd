@@ -1,0 +1,1 @@
+cmd_/home/rlk/GithubPages/myCodes/KernelExperiment/memory/get_mem.ko := arm-linux-gnueabi-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/rlk/GithubPages/myCodes/KernelExperiment/memory/get_mem.ko /home/rlk/GithubPages/myCodes/KernelExperiment/memory/get_mem.o /home/rlk/GithubPages/myCodes/KernelExperiment/memory/get_mem.mod.o
